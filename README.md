@@ -1,13 +1,13 @@
 # Hi there, I'm Chulan 👋
 
 ## About Me
-- 🔭 I’m currently working on [Senquest.gg](https://senquest.gg)
+- 🔭 I’m currently working on [GameOnLoop.com](https://gameonloop.com), [Senquest.gg](https://senquest.gg), [Senquest.gg](https://senquest.gg)
 - 🌱 I’m currently learning TypeScript
 - 👯 I’m looking to collaborate on web development projects
-- 📫 How to reach me: chulan@example.com
+- 📫 How to reach me: jack@jackedin.io
 
 ## My Projects
-- [Senquest Maintenance](https://github.com/chulan91/senquest-maintenance): A maintenance page for Senquest.gg
+- 
 
 ## Skills
 - JavaScript, Python, PHP, Java
