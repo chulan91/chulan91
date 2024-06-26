@@ -1,5 +1,3 @@
-### GitHub Profile README
-
 # Hi there, I'm Chulan 👋
 
 ## About Me
