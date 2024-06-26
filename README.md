@@ -1,16 +1,30 @@
-## Hi there 👋
+### GitHub Profile README
 
-<!--
-**chulan91/chulan91** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Hi there, I'm Chulan 👋
 
-Here are some ideas to get you started:
+## About Me
+- 🔭 I’m currently working on [Senquest.gg](https://senquest.gg)
+- 🌱 I’m currently learning TypeScript
+- 👯 I’m looking to collaborate on web development projects
+- 📫 How to reach me: chulan@example.com
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## My Projects
+- [Senquest Maintenance](https://github.com/chulan91/senquest-maintenance): A maintenance page for Senquest.gg
+
+## Skills
+- JavaScript, Python, PHP, Java
+- React.js, HTML & CSS, SASS, Bootstrap, Tailwind CSS
+- Node.js & Express.js, RESTful APIs, Discord.js, Twitter API, Twitch API
+- MySQL, MongoDB, PostgreSQL, Redis
+- Git & GitHub, Docker, Linux & Bash, VPN & SSH
+
+## Services Offered
+- UI/UX Design, Frontend Development, Backend Development
+- Database Design & Optimization, Web Security, Custom Solutions
+- AI Integrations & Consultations, Project Management
+
+## Social Media
+- [LinkedIn](https://www.linkedin.com/in/chulan91)
+- [Twitter](https://twitter.com/chulan91)
+
+![Chulan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=chulan91&show_icons=true&theme=radical)
