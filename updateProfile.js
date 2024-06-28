@@ -1,28 +1,11 @@
 const axios = require('axios');
-const csv = require('csv-parser');
 const fs = require('fs');
 const path = require('path');
+const simpleGit = require('simple-git');
 
-const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/1_dTIx3WxJIu2FV_xtpKQt-xzhl2XuMx_jyf4zYwG5lo/pub?output=csv';
+const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/1_dTIx3WxJIu2FV_xtpKQt-xzhl2XuMx_jyf4zYwG5lo/gviz/tq?tqx=out:json&gid=0';
 
 async function fetchData() {
-<<<<<<< Updated upstream
-    const response = await axios.get(googleSheetUrl);
-    const data = [];
-    
-    return new Promise((resolve, reject) => {
-      require('streamifier')
-        .createReadStream(response.data)
-        .pipe(csv())
-        .on('data', (row) => {
-          data.push(row);
-        })
-        .on('end', () => {
-          resolve(data);
-        })
-        .on('error', reject);
-    });
-=======
   const response = await axios.get(googleSheetUrl);
   const jsonData = JSON.parse(response.data.substring(47).slice(0, -2)); // Adjust the JSON data to be valid
   const rows = jsonData.table.rows;
@@ -47,17 +30,19 @@ async function commitAndPushChanges() {
   const git = simpleGit();
 
   try {
+    // Abort any existing rebase
+    await git.rebase(['--abort']).catch(() => {});
+
     // Stash any local changes
     await git.stash();
 
-    // Pull the latest changes
-    await git.pull('origin', 'main');
+    // Pull the latest changes with rebase
+    await git.pull('origin', 'main', { '--rebase': 'true' });
 
     // Apply the stash
     await git.stash(['pop']);
 
     // Stage and commit the README.md file
->>>>>>> Stashed changes
     await git.add('./README.md');
     await git.commit('Update README with latest data from Google Sheets');
 
@@ -65,28 +50,34 @@ async function commitAndPushChanges() {
     await git.push('origin', 'main');
     console.log('Changes committed and pushed to GitHub');
   } catch (err) {
+    console.error('Error committing and pushing changes:', err);
     if (err.message.includes('CONFLICT')) {
-      console.error('Merge conflict detected. Aborting rebase...');
-      await git.rebase(['--abort']);
-      console.log('Rebase aborted.');
-    } else {
-      console.error('Error committing and pushing changes:', err);
+      console.error('Merge conflict detected. Attempting to resolve...');
+      try {
+        // Automatically resolve conflicts by keeping the latest README.md
+        await git.checkout(['--ours', 'README.md']);
+        await git.add('README.md');
+        await git.rebase(['--continue']);
+        await git.push('origin', 'main');
+        console.log('Conflicts resolved and changes pushed to GitHub');
+      } catch (resolveErr) {
+        console.error('Error resolving conflicts and pushing changes:', resolveErr);
+        console.log('Attempting to reset and pull latest changes');
+        await git.reset(['--hard', 'origin/main']);
+        await git.pull('origin', 'main', { '--rebase': 'true' });
+        await git.stash(['pop']);
+        await git.add('./README.md');
+        await git.commit('Update README with latest data from Google Sheets');
+        await git.push('origin', 'main');
+      }
     }
->>>>>>> Stashed changes
   }
-  
-  async function updateReadme(data) {
-    const readmePath = path.join(__dirname, 'README.md');
-    let readmeContent = `# My GitHub Profile\n\n## Latest Data from Google Sheets\n\n`;
-    data.forEach(item => {
-      readmeContent += `### ${item.title}\n\n${item.description}\n\n`;
-    });
-    fs.writeFileSync(readmePath, readmeContent, 'utf-8');
-  }
-  
-  async function main() {
-    const data = await fetchData();
-    await updateReadme(data);
-  }
-  
-  main().catch(console.error);
+}
+
+async function main() {
+  const data = await fetchData();
+  await updateReadme(data);
+  await commitAndPushChanges();
+}
+
+main().catch(console.error);
