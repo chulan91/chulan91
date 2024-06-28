@@ -1,4 +1,4 @@
-
+# My GitHub Profile
 
 # Hi there, I'm Chulan 👋
 
@@ -62,3 +62,6 @@
 
 - [Twitch](https://www.twitch.tv/jackriper)
 
+
+
+*Last updated: 6/28/2024, 6:57:39 PM UTC*
