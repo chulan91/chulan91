@@ -1,0 +1,16 @@
+{
+  "name": "chulan91",
+  "version": "1.0.0",
+  "description": "## About Me - 🔭 I’m currently working with [GameOnLoop.com](https://gameonloop.com), [Senquest.gg](https://senquest.gg), and other projects - 🌐 [My Portfolio](https://chulanm.com) - Explore my projects, experience, and more about me - 👯 Open to collaborating on web development projects - 📫 How to reach me: info@jackedin.io - 🎮 [Twitch](https://www.twitch.tv/jackriper) Partnered Streamer (JackRiper) - I stream Fortnite and Fortnite tournaments",
+  "main": "index.js",
+  "scripts": {
+    "start": "node updateProfile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "csv-parser": "^3.0.0"
+  }
+}
