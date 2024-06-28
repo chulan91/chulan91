@@ -2,7 +2,7 @@ name: Update GitHub Profile
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight UTC
+    - cron: '*/1 * * * *'  # Runs every minute
   push:
     branches:
       - main
@@ -30,7 +30,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git commit -m 'Update profile'
+          git commit -m 'Update README with latest data from Google Sheets' || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
