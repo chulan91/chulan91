@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const simpleGit = require('simple-git');
+const { DateTime } = require('luxon');
 
 const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/1_dTIx3WxJIu2FV_xtpKQt-xzhl2XuMx_jyf4zYwG5lo/gviz/tq?tqx=out:json&gid=0';
 
@@ -9,20 +10,22 @@ async function fetchData() {
   const response = await axios.get(googleSheetUrl);
   const jsonData = JSON.parse(response.data.substring(47).slice(0, -2)); // Adjust the JSON data to be valid
   const rows = jsonData.table.rows;
-  const data = rows.map(row => row.c[0] ? row.c[0].v : '');
+  const data = rows.map(row => row.c ? row.c.map(cell => cell ? cell.v : '').join(' | ') : '');
   return data;
 }
 
 async function updateReadme(data) {
   const readmePath = path.join(__dirname, 'README.md');
-  let readmeContent = `# My GitHub Profile\n\n`;
+  let readmeContent = ` \n\n`;
+
   data.forEach(line => {
     readmeContent += `${line}\n\n`;
   });
-  
-  const lastUpdateTime = new Date().toLocaleString('en-US', { timeZone: 'UTC' });
-  readmeContent += `\n\n*Last updated: ${lastUpdateTime} UTC*`;
-  
+
+  const utcTime = DateTime.now().setZone('UTC').toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  const nlTime = DateTime.now().setZone('Europe/Amsterdam').toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  readmeContent += `\n\n*Last updated: ${utcTime} UTC / ${nlTime} NL*`;
+
   fs.writeFileSync(readmePath, readmeContent, 'utf-8');
 }
 
