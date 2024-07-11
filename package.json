@@ -4,7 +4,7 @@
   "description": "## About Me - 🔭 I’m currently working with [GameOnLoop.com](https://gameonloop.com), [Senquest.gg](https://senquest.gg), and other projects - 🌐 [My Portfolio](https://chulanm.com) - Explore my projects, experience, and more about me - 👯 Open to collaborating on web development projects - 📫 How to reach me: info@jackedin.io - 🎮 [Twitch](https://www.twitch.tv/jackriper) Partnered Streamer (JackRiper) - I stream Fortnite and Fortnite tournaments",
   "main": "index.js",
   "scripts": {
-    "start": "node updateProfile.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,10 @@
   "dependencies": {
     "axios": "^1.7.2",
     "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
     "luxon": "^3.4.4",
+    "node-cache": "^5.1.2",
+    "openai": "^4.52.7",
     "simple-git": "^3.25.0"
   }
 }
