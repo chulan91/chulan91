@@ -2,7 +2,7 @@ name: Update GitHub Profile
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight UTC
+    - cron: '* * * * *'  # Runs every day at midnight UTC
   push:
     branches:
       - main
