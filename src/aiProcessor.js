@@ -47,6 +47,7 @@ async function processText(text, mode = 'grammar') {
     });
     const result = response.choices[0].message.content;
     cache.set(cacheKey, result);
+    result = result + '\n UPDATED WITH AI';
     return result;
   } catch (error) {
     console.error('OpenAI API error:', error);
