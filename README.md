@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
- 
-=======
 
->>>>>>> Stashed changes
 
 # Hi there, I'm Chulan 👋
 
@@ -68,8 +64,4 @@
 
 
 
-<<<<<<< Updated upstream
-*Last updated: Jul 11, 2024, 12:19:34 AM UTC / Jul 11, 2024, 2:19:34 AM NL*
-=======
-*Last updated: Jul 11, 2024, 5:43:13 PM UTC / Jul 11, 2024, 7:43:13 PM NL*
->>>>>>> Stashed changes
+*Last updated: Jul 11, 2024, 5:43:57 PM UTC / Jul 11, 2024, 7:43:58 PM NL*
