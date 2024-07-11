@@ -11,6 +11,7 @@ const cache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 async function processText(text, mode = 'grammar') {
   if (!openai) {
     console.warn("No OpenAI API key set, returning original text.");
+    text = text + '\n NO API KEY SET';
     return text;
   }
 
