@@ -4,8 +4,6 @@
 
 ## About Me
 
-- 🔭 I’m currently working with [GameOnLoop.com](https://gameonloop.com), [Senquest.gg](https://senquest.gg), and other projects
-
 - 🌐 [My Portfolio](https://chulanm.com) - Explore my projects, experience, and more about me
 
 - 👯 Open to collaborating on web development projects
