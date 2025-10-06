@@ -10,12 +10,6 @@
 
 - 📫 How to reach me: info@jackedin.io
 
-- 🎮 [Twitch](https://www.twitch.tv/jackriper) Partnered Streamer (JackRiper) - I stream Fortnite and Fortnite tournaments
-
-## My Projects
-
-- [PlayerZone.gg](https://PlayerZone.gg) - React.js, Express.js, and Node.js based Tournament platform built from the ground up
-
 ## Skills
 
 - **Languages:** JavaScript, Python, PHP, Java
